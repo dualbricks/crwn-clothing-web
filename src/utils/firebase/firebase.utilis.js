@@ -1,11 +1,19 @@
 import { initializeApp } from 'firebase/app';
-import { getAuth, signInWithRedirect, signInWithPopup, GoogleAuthProvider, createUserWithEmailAndPassword, signInWithEmailAndPassword} from 'firebase/auth';
+import { 
+  getAuth, 
+  signInWithPopup, 
+  GoogleAuthProvider, 
+  createUserWithEmailAndPassword, 
+  signInWithEmailAndPassword, 
+  signOut,
+  onAuthStateChanged,
+} from 'firebase/auth';
 import {getFirestore, doc, getDoc, setDoc} from 'firebase/firestore'
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: process.env.FIREBASE_API_KEY,
-    authDomain: process.env.DOMAIN,
+    apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+    authDomain: process.env.REACT_APP_DOMAIN,
     projectId: "crwn-clothing-db-ee228",
     storageBucket: "crwn-clothing-db-ee228.appspot.com",
     messagingSenderId: "927176498961",
@@ -65,3 +73,7 @@ const firebaseConfig = {
     return await signInWithEmailAndPassword(auth, email, password)
 
   }
+
+  export const SignOutUser = async() => await signOut(auth);
+
+  export const onAuthStateChangedListener = (callback) => onAuthStateChanged(auth, callback);
