@@ -10,6 +10,7 @@ import CartIcon from "./cart-icon/cart-icon.component";
 import CartDropdown from "./cart-dropdown/cart-dropdown.component";
 import CartItem from "./cart-item/cart-item.component";
 import CheckoutItem from "./checkout-item/checkout-item.component";
+import CategoryPreview from "./category-preview/category-preview.component";
 
 export {
     CategoryItem, 
@@ -23,5 +24,6 @@ export {
     CartIcon,
     CartDropdown,
     CartItem,
-    CheckoutItem
+    CheckoutItem,
+    CategoryPreview,
 };
